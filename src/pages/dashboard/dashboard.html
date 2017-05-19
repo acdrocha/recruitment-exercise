@@ -17,8 +17,48 @@
 
 
 <ion-content>
-  <!-- Placeholder image to use as a guide. Remove this when you are ready -->
-<img src="/assets/dashboard-design.png" />
 
-   <div id="dashboardChart" #dashboardChart></div>
+  <ion-grid>
+
+    <ion-row class="rangeContainer" justify-content-end>
+
+        <ion-col col-4>
+          <ion-select [(ngModel)]="fromMonth" (ngModelChange)="drawCharts()">
+            <ion-option *ngFor="let name of monthNames; let i = index" value="{{i+1}}">
+              {{name}}
+            </ion-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col col-4>
+          <ion-select [(ngModel)]="toMonth" (ngModelChange)="drawCharts($event)">
+            <ion-option *ngFor="let name of monthNames; let i = index" value="{{i+1}}">
+              {{name}}
+            </ion-option>
+          </ion-select>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-8>
+        <div class="chartContainer">
+          <h3>Combined Income</h3>
+          <h4>For the selected period</h4>
+          <h2>{{totalIncome | currency:'GBP':true:'4.0-2'}}</h2>
+
+          <div id="incomeChart" #incomeChart></div>
+        </div>
+      </ion-col>
+      <ion-col col-4>
+        <div class="chartContainer">
+          <h3>Combined Occupancy</h3>
+          <h4>For the selected period</h4>
+
+          <div id="occupancyChart" #occupancyChart></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

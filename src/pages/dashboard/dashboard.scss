@@ -1,3 +1,64 @@
+$page-bgcolor: #EEF3F6;
+$title-primary-color: #334053;
+$title-secondary-color: #7C8FA5;
+
+$container-bgcolor: #FFF;
+$container-border: 1px solid #DFE2E5;
+
+$default-padding: 10px;
+
 page-dashboard {
 
+  .content {
+    background-color: $page-bgcolor;
+  }
+
+  .grid {
+    padding: 0px;
+  }
+
+  .rangeContainer {
+    background-color: $container-bgcolor;
+    border-bottom: $container-border;
+    padding: $default-padding;
+
+    ion-select {
+      margin-right: 0;
+      margin-left: auto;
+      min-width: 100px;
+    }
+  }
+
+  .chartContainer {
+    background-color: $container-bgcolor;
+    padding: $default-padding;
+    border-radius: 3px;
+    border: $container-border;
+    height: 500px;
+
+    h3 {
+      color: $title-primary-color;
+      font-size: 16px;
+    }
+
+    h4 {
+      color: $title-secondary-color;
+      font-size: 10px;
+      margin-top: 0px;
+    }
+
+    h2 {
+      color: $title-primary-color;
+    }
+  }
+
+  .c3-axis-y {
+    display: none;
+  }
+
+  .c3-axis-x {
+    path, line {
+      display: none;
+    }
+  }
 }
